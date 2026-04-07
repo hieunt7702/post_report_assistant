@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Post Report Assistant",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "User-started report assistant for facebook.com. Runs on the current tab only and stores session status locally.",
   "permissions": [
     "activeTab",
