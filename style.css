@@ -169,6 +169,9 @@ h1 {
     font-size: 21px;
     line-height: 1.1;
     letter-spacing: -0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .metric-note {

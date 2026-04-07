@@ -46,16 +46,16 @@ Tài liệu này tổng hợp các câu trả lời tối ưu nhất cho "Post R
 
 ### Quyền (Permissions Rationale)
 Google sẽ hỏi tại sao bạn cần các quyền này:
-- **activeTab:** Cần thiết để tiện ích chỉ truy cập và thực hiện thao tác trên tab Facebook mà người dùng đang mở và yêu cầu hỗ trợ.
-- **scripting:** Dùng để chèn tập lệnh (content script) vào tab hiện tại nhằm thực hiện các thao tác click tự động theo quy trình báo cáo của Facebook.
-- **storage:** Dùng để lưu trữ tạm thời trạng thái phiên làm việc (đang chạy hay dừng) và số lượng bài viết đã báo cáo, giúp người dùng theo dõi tiến độ.
+- **Host Permissions (`*://*.facebook.com/*`) & content_scripts:** Cần thiết để tự động chèn tập lệnh (content script) vào các trang Facebook nhằm duy trì quá trình báo cáo hoạt động liên tục (tự động tiếp tục sau khi tải lại trang khi gặp lỗi mạng/UI). Tiện ích giới hạn chỉ hoạt động trên tên miền của Facebook thay vì toàn bộ trang web.
+- **activeTab & scripting:** Dự phòng để tương tác thủ công đối với popup ở lần đầu tiên khởi chạy.
+- **storage:** Dùng để lưu trữ tạm thời trạng thái phiên làm việc (đang chạy hay dừng) và số lượng bài viết đã báo cáo, giúp tiếp tục đúng tiến độ.
 
 ### Sử dụng dữ liệu (Data Usage)
 - **Dữ liệu có được thu thập không?** Chọn **NO**.
 - **Tiện ích có sử dụng mã từ xa (Remote Code) không?** Chọn **NO** (Tất cả logic nằm trong `content.js` và `popup.js` đi kèm).
 
 ### Tuyên bố về quyền riêng tư (Privacy Policy)
-- Bạn cần cung cấp URL đến file `PRIVACY_POLICY.md` (khuyên khích đưa lên GitHub Pages hoặc một trang web cá nhân).
+- Bạn cần cung cấp URL đến file `PRIVACY_POLICY.md` (khuyến khích đưa lên GitHub Pages hoặc một trang web cá nhân).
 
 ---
 

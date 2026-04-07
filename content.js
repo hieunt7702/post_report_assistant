@@ -145,10 +145,14 @@
     }
 
     async function startAutoReport() {
+        let emptyScanCounter = 0;
+
         while (isRunning) {
             const buttons = Array.from(document.querySelectorAll(
                 'div[aria-label="Actions for this post"], div[aria-label="H\u00e0nh \u0111\u1ed9ng v\u1edbi b\u00e0i vi\u1ebft n\u00e0y"]'
             ));
+
+            let foundNewPost = false;
 
             for (const button of buttons) {
                 if (!isRunning) {
@@ -158,6 +162,9 @@
                 if (button.dataset.reported === "true" || !isVisible(button)) {
                     continue;
                 }
+
+                foundNewPost = true;
+                emptyScanCounter = 0;
 
                 button.dataset.reported = "true";
                 button.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -178,12 +185,29 @@
                     break;
                 }
 
-                logger("Flow error. Trying to close the popup...", "error");
-                document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" }));
-                await delay(2000);
+                logger("Flow error. Refreshing the page to auto-resume...", "error");
+                sessionStorage.setItem("PRA_RESUME_ON_LOAD", "true");
+                await syncState({
+                    lastStatus: `Refreshed page to recover from an error. Resuming...`
+                });
+                window.location.reload();
+                return;
             }
 
             if (isRunning) {
+                if (!foundNewPost) {
+                    emptyScanCounter++;
+                    if (emptyScanCounter >= 3) {
+                        logger("No fresh posts found to report. Refreshing the page...", "warn");
+                        sessionStorage.setItem("PRA_RESUME_ON_LOAD", "true");
+                        await syncState({
+                            lastStatus: `No posts found. Refreshed page to load new content.`
+                        });
+                        window.location.reload();
+                        return;
+                    }
+                }
+
                 window.scrollBy(0, 800);
                 await delay(4000);
             }
@@ -245,4 +269,17 @@
 
         return true;
     });
+
+    (async () => {
+        if (sessionStorage.getItem("PRA_RESUME_ON_LOAD") === "true") {
+            sessionStorage.removeItem("PRA_RESUME_ON_LOAD");
+            const stored = await getStorage(["isRunning", "reportedCount"]);
+            if (stored.isRunning) {
+                isRunning = true;
+                reportedCount = Number(stored.reportedCount) || 0;
+                logger("Auto-resuming run after page reload...", "success");
+                startAutoReport();
+            }
+        }
+    })();
 })();
