@@ -41,7 +41,7 @@ body {
 }
 
 .popup-shell {
-    padding: 14px 18px;
+    padding: 10px 14px;
 }
 
 .card {
@@ -53,7 +53,7 @@ body {
 }
 
 .hero-card {
-    padding: 18px;
+    padding: 14px;
     position: relative;
     overflow: hidden;
 }
@@ -108,10 +108,10 @@ h1 {
 }
 
 .hero-copy {
-    margin: 16px 0 0;
+    margin: 10px 0 0;
     max-width: 300px;
     font-size: 13px;
-    line-height: 1.55;
+    line-height: 1.45;
     color: var(--muted);
 }
 
@@ -150,13 +150,13 @@ h1 {
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 14px;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .metric-card {
-    padding: 16px;
-    border-radius: 20px;
+    padding: 12px 14px;
+    border-radius: 18px;
     background: rgba(255, 253, 249, 0.88);
     border: 1px solid var(--line);
     box-shadow: 0 8px 22px rgba(36, 43, 40, 0.08);
@@ -192,8 +192,8 @@ h1 {
 
 .controls-card,
 .guidance-card {
-    margin-top: 14px;
-    padding: 16px;
+    margin-top: 10px;
+    padding: 14px;
 }
 
 .button-row {
@@ -203,9 +203,9 @@ h1 {
 }
 
 .btn {
-    min-height: 46px;
+    min-height: 40px;
     border: 0;
-    border-radius: 15px;
+    border-radius: 12px;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
@@ -238,9 +238,9 @@ h1 {
 }
 
 .message-bar {
-    margin: 12px 0 0;
-    padding: 12px 14px;
-    border-radius: 16px;
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border-radius: 14px;
     font-size: 12px;
     line-height: 1.5;
     color: var(--muted);
@@ -261,7 +261,7 @@ h1 {
 }
 
 h2 {
-    margin: 0 0 12px;
+    margin: 0 0 8px;
     font-size: 15px;
     letter-spacing: -0.02em;
 }
@@ -273,9 +273,9 @@ h2 {
 }
 
 .guidance-list li {
-    margin-top: 8px;
+    margin-top: 6px;
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .guidance-list li:first-child {
@@ -283,7 +283,7 @@ h2 {
 }
 
 .footer {
-    margin-top: 12px;
+    margin-top: 10px;
     text-align: center;
     font-size: 11px;
     color: rgba(20, 33, 28, 0.72);
