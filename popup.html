@@ -13,14 +13,14 @@
                 <div class="brand-lockup">
                     <img src="icon128.png" alt="Post Report Assistant icon" class="brand-mark" width="44" height="44">
                     <div>
-                        <p class="eyebrow">Current-tab workflow</p>
-                        <h1>Post Report Assistant</h1>
+                        <p class="eyebrow" data-i18n="popupHeroEyebrow">Current-tab workflow</p>
+                        <h1 data-i18n="extName">Post Report Assistant</h1>
                     </div>
                 </div>
-                <span id="status-pill" class="status-pill is-idle">Idle</span>
+                <span id="status-pill" class="status-pill is-idle" data-i18n="jsStatusReady">Ready</span>
             </div>
 
-            <p class="hero-copy">
+            <p class="hero-copy" data-i18n="popupHeroCopy">
                 Start a reporting run only after you open the target Facebook page yourself.
                 The extension stores count and session state locally in Chrome.
             </p>
@@ -28,40 +28,40 @@
 
         <section class="metrics-grid">
             <article class="metric-card">
-                <span class="metric-label">Current page</span>
-                <strong id="tab-host" class="metric-value">Checking...</strong>
-                <span id="tab-hint" class="metric-note">The extension only runs on facebook.com.</span>
+                <span class="metric-label" data-i18n="popupMetricPage">Current page</span>
+                <strong id="tab-host" class="metric-value" data-i18n="popupTabHostDefault">Checking...</strong>
+                <span id="tab-hint" class="metric-note" data-i18n="popupTabHint">The extension only runs on facebook.com.</span>
             </article>
 
             <article class="metric-card">
-                <span class="metric-label">Reported in session</span>
+                <span class="metric-label" data-i18n="popupMetricCount">Reported in session</span>
                 <strong id="count-value" class="metric-value">0</strong>
-                <span class="metric-note">Saved locally with Chrome storage.</span>
+                <span class="metric-note" data-i18n="popupMetricNote">Saved locally with Chrome storage.</span>
             </article>
         </section>
 
         <section class="card controls-card">
             <div class="button-row">
-                <button id="start-btn" class="btn btn-primary" type="button">Start on this tab</button>
-                <button id="stop-btn" class="btn btn-secondary" type="button">Stop</button>
+                <button id="start-btn" class="btn btn-primary" type="button" data-i18n="popupBtnStart">Start on this tab</button>
+                <button id="stop-btn" class="btn btn-secondary" type="button" data-i18n="popupBtnStop">Stop</button>
             </div>
 
-            <p id="message-bar" class="message-bar" role="status">
+            <p id="message-bar" class="message-bar" role="status" data-i18n="popupMessageBarDefault">
                 Open a facebook.com page to enable Start.
             </p>
         </section>
 
         <section class="card guidance-card">
-            <h2>How this build is scoped</h2>
+            <h2 data-i18n="popupGuidanceTitle">How this build is scoped</h2>
             <ul class="guidance-list">
-                <li>User-started only. Nothing runs until you click Start.</li>
-                <li>Current tab only. No persistent access is requested for all sites.</li>
-                <li>Local storage only. This build does not send data to a remote server.</li>
+                <li data-i18n="popupGuidanceItem1">User-started only. Nothing runs until you click Start.</li>
+                <li data-i18n="popupGuidanceItem2">Current tab only. No persistent access is requested for all sites.</li>
+                <li data-i18n="popupGuidanceItem3">Local storage only. This build does not send data to a remote server.</li>
             </ul>
         </section>
 
         <footer class="footer">
-            <span>Built for a narrow, transparent extension flow.</span>
+            <span data-i18n="popupFooter">v2.2.0 - created by hieunt</span>
         </footer>
     </main>
 

@@ -1,75 +1,71 @@
-# Hướng dẫn Đẩy Tiện ích lên Chrome Web Store
+# Hướng dẫn Đẩy Tiện ích lên Chrome Web Store (Cập nhật cho v2.3.0)
 
-Tài liệu này tổng hợp các câu trả lời tối ưu nhất cho "Post Report Assistant" để đảm bảo tỉ lệ duyệt nhanh và tránh bị từ chối do vi phạm chính sách về quyền riêng tư hoặc mô tả gây nhầm lẫn.
+Tài liệu này tổng hợp các câu trả lời tối ưu nhất cho "Post Report Assistant" để đảm bảo tỉ lệ duyệt nhanh nhất và tránh bị từ chối do vi phạm chính sách hiển thị hoặc quyền riêng tư.
 
 ---
 
 ## 1. Thông tin sản phẩm (Product Details)
 
 - **Tên tiện ích (Name):** Post Report Assistant
-- **Mô tả ngắn (Summary):** Hỗ trợ báo cáo bài viết trên Facebook một cách nhanh chóng. Chạy trên tab hiện tại theo yêu cầu của người dùng.
+- **Mô tả ngắn (Summary):** Hỗ trợ báo cáo bài viết trên Facebook một cách nhanh chóng. Chạy tĩnh trên tab hiện tại và hỗ trợ đa ngôn ngữ.
 - **Mô tả chi tiết (Description):**
-  Post Report Assistant là một công cụ hỗ trợ người dùng Facebook thực hiện quy trình báo cáo (report) các bài viết vi phạm chính sách (như lừa đảo, thông tin giả mạo) một cách nhanh chóng và có hệ thống.
+  Post Report Assistant là một công cụ hỗ trợ người dùng Facebook thực hiện quy trình báo cáo (report) các bài viết chứa nội dung rác, thông tin sai lệch một cách nhanh chóng.
+  
+  (Vui lòng cung cấp cả phần dịch tiếng Anh cho đối tượng quốc tế nếu cần thiết vì tiện ích đã có tiếng Anh).
 
-  **Các tính năng chính:**
+  **Các tính năng nổi bật:**
+  - Hỗ trợ đa ngôn ngữ (Tiếng Việt & Tiếng Anh tự động nhận diện theo Chrome).
+  - Giao diện nhỏ gọn, sắc nét chuẩn 640x400 không có thanh cuộn ngang/dọc, trải nghiệm mượt mà.
   - Chạy trực tiếp trên tab Facebook hiện tại khi người dùng nhấn nút "Start".
   - Tự động hóa các bước chọn lý do báo cáo (mặc định là "Scam, fraud or false information").
-  - Thống kê số lượng bài viết đã xử lý trong phiên làm việc.
-  - Hoàn toàn minh bạch: Không thu thập dữ liệu người dùng, không gửi dữ liệu ra máy chủ bên ngoài. Tất cả trạng thái được lưu trữ cục bộ (local storage) trên trình duyệt của bạn.
+  - Hoàn toàn minh bạch: Không thu thập dữ liệu người dùng, không bao giờ gửi dữ liệu ra máy chủ bên ngoài. Tất cả trạng thái lưu trữ cục bộ (local storage) trên Chrome của bạn.
 
   **Cách sử dụng:**
-  1. Mở trang Facebook chứa các bài viết bạn muốn báo cáo.
-  2. Click vào biểu tượng tiện ích và nhấn "Start".
-  3. Tiện ích sẽ tự động thực hiện các thao tác trên tab đó. Bạn có thể nhấn "Stop" bất cứ lúc nào.
+  1. Mở trang Facebook chứa bài viết bạn muốn xử lý.
+  2. Mở tiện ích và nhấn "Start on this tab" (Bắt đầu trên tab này).
+  3. Tiện ích tự tiến hành click các tùy chọn cần thiết trong khi bạn có khả năng nhấn "Stop" ngay lập tức để dừng luồng hoạt động.
 
-- **Danh mục (Category):** Productivity (Năng suất)
+- **Danh mục (Category):** Productivity (Hoặc Social & Communication)
 
 ---
 
 ## 2. Hình ảnh và Thương hiệu (Assets)
 
-- **Icon:** Sử dụng các file `icon16.png`, `icon32.png`, `icon48.png`, `icon128.png` có sẵn trong thư mục gốc.
-- **Screenshots:** Bạn cần chụp ít nhất 2 ảnh:
-  1. Ảnh giao diện Popup khi đang ở trạng thái "Ready".
-  2. Ảnh giao diện Popup khi đang chạy ("Running") kèm theo log bên dưới (nếu có).
-- **Promotional Tiles:** Tạo một ảnh 440x280 (Small Tile) với logo và tên tiện ích trên nền màu xanh Facebook (#1877f2) để trông chuyên nghiệp hơn.
+- **Icon:** Dùng tệp `icon16.png`, `icon32.png`, `icon48.png`, `icon128.png`.
+- **Screenshots (Cực kỳ quan trọng):** 
+  Do phiên bản v2.3.0 đã tối ưu hóa không còn thanh cuộn và căn đúng kích thước `640x400` cho tiện ích, vui lòng chụp chuẩn không gian của popup từ trên xuống dưới.
+  1. Ảnh popup phiên bản cũ đã được gỡ đi, thay bằng ảnh chụp popup phiên bản mới (sạch và hiển thị đẩy đủ).
+  2. Một ảnh hiển thị trạng thái "Running" (Đang chạy).
+- **Video Demo (Bắt buộc):** Một số Extension tự động bấm chuột dễ bị bot review đánh giá là rủi ro. Hãy đính kèm link YouTube một Video Demo không công khai hiển thị chi tiết tính năng của bạn để qua ải "Manual Review".
 
 ---
 
-## 3. Quyền riêng tư và Bảo mật (Privacy & Security)
+## 3. Quyền riêng tư và Bảo mật (Privacy & Security) - Mẫu điền Declaration
 
-Đây là phần quan trọng nhất để được duyệt nhanh. Hãy trả lời chính xác như sau:
+Để được duyệt phiên bản 2.3.0, hãy điền như sau:
 
-### Mục đích sử dụng dữ liệu (Single Purpose)
-- **Câu hỏi:** Giải thích mục đích duy nhất của tiện ích.
-- **Trả lời:** Hỗ trợ người dùng tự động hóa quy trình báo cáo các bài viết vi phạm trên Facebook tại tab đang hoạt động để tiết kiệm thời gian và tăng hiệu quả quản lý nội dung.
+### Mục đích duy nhất (Single Purpose Description)
+"This extension assists users in automating the repetitive clicks required to report inappropriate posts strictly on their active Facebook tab. It executes solely upon user request to streamline their personal content moderation."
 
-### Quyền (Permissions Rationale)
-Google sẽ hỏi tại sao bạn cần các quyền này:
-- **Host Permissions (`*://*.facebook.com/*`) & content_scripts:** Cần thiết để tự động chèn tập lệnh (content script) vào các trang Facebook nhằm duy trì quá trình báo cáo hoạt động liên tục (tự động tiếp tục sau khi tải lại trang khi gặp lỗi mạng/UI). Tiện ích giới hạn chỉ hoạt động trên tên miền của Facebook thay vì toàn bộ trang web.
-- **activeTab & scripting:** Dự phòng để tương tác thủ công đối với popup ở lần đầu tiên khởi chạy.
-- **storage:** Dùng để lưu trữ tạm thời trạng thái phiên làm việc (đang chạy hay dừng) và số lượng bài viết đã báo cáo, giúp tiếp tục đúng tiến độ.
+### Diễn giải quyền (Permissions Justification)
+- **Host Permissions (`*://*.facebook.com/*`) & content_scripts:** 
+  "Necessary to inject a content script to manipulate DOM elements for the reporting workflow on Facebook. It strictly operates within Facebook URLs and handles UI states effectively when errors occur."
+- **activeTab & scripting:** 
+  "Used to access the currently focused tab's URL to verify it is Facebook before injecting the script via user interaction in the extension popup."
+- **storage:** 
+  "Used strictly for local session management (persisting start/stop state and item count locally on user's machine). No data leaves the browser."
 
-### Sử dụng dữ liệu (Data Usage)
-- **Dữ liệu có được thu thập không?** Chọn **NO**.
-- **Tiện ích có sử dụng mã từ xa (Remote Code) không?** Chọn **NO** (Tất cả logic nằm trong `content.js` và `popup.js` đi kèm).
+### Data Usage (Cực kỳ quan trọng)
+- **Do you collect data?** Chọn **NO**.
+- **Do you use remote code?** Chọn **NO**. 
 
-### Tuyên bố về quyền riêng tư (Privacy Policy)
-- Bạn cần cung cấp URL đến file `PRIVACY_POLICY.md` (khuyến khích đưa lên GitHub Pages hoặc một trang web cá nhân).
-
----
-
-## 4. Cam kết của Lập trình viên (Developer Certifications)
-
-Khi được hỏi về cam kết, hãy tích chọn các mục xác nhận rằng:
-1. Bạn không bán dữ liệu người dùng cho bên thứ ba.
-2. Bạn không sử dụng dữ liệu cho các mục đích không liên quan đến tính năng chính của tiện ích.
-3. Bạn không thu thập dữ liệu để đánh giá tín dụng hoặc cho vay.
+### Tuyên bố về quyền riêng tư (Privacy Policy URL)
+- Nơi đến của URL có thể trỏ thẳng vào nội dung `PRIVACY_POLICY.md` mà tôi đã cập nhật nội dung cho bạn.
 
 ---
 
-## 5. Lưu ý quan trọng để tránh bị từ chối
+## 4. Cam kết lập trình viên
 
-1. **Không sử dụng từ "Auto" quá nhiều ở tiêu đề:** Google đôi khi khắt khe với các tiện ích "Automation". Sử dụng từ "Assistant" (Trợ lý) sẽ an toàn hơn và dễ được duyệt hơn.
-2. **Video demo:** Nếu có thể, hãy quay một video ngắn (dưới 30s) quay cảnh tiện ích hoạt động trên Facebook và tải lên phần "Screencast" trong Dashboard. Điều này giúp kiểm duyệt viên hiểu rõ cơ chế hoạt động của tiện ích và duyệt nhanh hơn cực kỳ nhiều.
-3. **Phản hồi kiểm duyệt:** Nếu bị từ chối với lý do "Use of Permissions", hãy nhắc lại rằng tiện ích chỉ chạy khi người dùng chủ động nhấn nút và chỉ giới hạn trong tab hiện tại (`activeTab`).
+- Check đầy đủ các mục: KHÔNG bán dữ liệu, KHÔNG thao tác vào các thứ không liên quan, KHÔNG dùng vào tín dụng/vay nợ.
+
+Chúc bạn đẩy tiện ích mới thành công và đạt vòng duyệt xét một cách nhanh chóng nhất!

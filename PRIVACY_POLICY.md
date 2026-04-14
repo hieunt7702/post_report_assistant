@@ -1,30 +1,33 @@
-# Privacy Policy
+# Privacy Policy 
 
-Last updated: 2026-04-04
+Last updated: 2026-04-15 (Version 2.3.0)
 
 ## Overview
 
-Post Report Assistant is a Chrome extension that runs only when the user opens the extension popup and starts a run on the current `facebook.com` tab.
+Post Report Assistant (Version 2.3.0) is a Chrome extension that runs only when the user opens the extension popup and explicitly starts a run on the current `facebook.com` tab.
+
+## Single Purpose
+The single, core purpose of this extension is to assist the user in managing and automating repetitive reporting workflows on the currently active Facebook tab. The extension does not run in the background on arbitrary pages.
 
 ## Data Handling
 
-- The extension reads page interface text and visible action controls on the current `facebook.com` tab in order to perform its reporting workflow.
-- The extension stores only local session data in Chrome storage:
-  - whether a run is active
+- The extension only reads page interface text (DOM) and clicks visible action controls strictly on the current `facebook.com` tab to perform the user-initiated workflow.
+- The extension uses minimal local session storage (Chrome storage) to track progress:
+  - boolean state of whether a run is active
   - the local reported-item count
   - the tab id associated with the active run
-  - the latest local status message
-- The extension does not transmit this stored data to any remote server.
-- The extension does not collect account credentials, payment data, or browsing history outside the active workflow tab.
+  - the last status message for UI updates
+- **No Remote Transmission**: The extension does absolutely not transmit, share, or upload any stored data to any remote server. It operates 100% locally on the user's browser.
+- **No Personal Data Collection**: The extension does not collect, track, or read account credentials, payment data, personal messages, or browsing history outside the active workflow tab.
 
 ## Sharing
 
-- No local session data is sold or shared with third parties by this build.
+- No local session data is sold, traded, or shared with third parties under any circumstances.
 
 ## Retention
 
-- Session state remains in local Chrome extension storage until the user clears extension data or removes the extension.
+- Session state remains purely in local Chrome extension storage. This data is automatically cleared when the user removes the extension or clears their extension storage data.
 
-## Contact
+## Support Contact
 
-- Replace this section with your public support contact before publishing.
+- hieunt7702 (Please reach out via the developer support email provided on the Web Store listing).

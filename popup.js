@@ -16,6 +16,21 @@ const elements = {
     messageBar: document.getElementById("message-bar")
 };
 
+function localizeDOM() {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const msg = chrome.i18n.getMessage(el.getAttribute("data-i18n"));
+        if (msg) {
+            el.textContent = msg;
+        }
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", localizeDOM);
+} else {
+    localizeDOM();
+}
+
 let activeTab = null;
 let viewState = { ...STORAGE_KEYS };
 let busyMessage = "";
@@ -60,13 +75,13 @@ function sendTabMessage(tabId, payload) {
 
 function getHostname(tab) {
     if (!tab?.url) {
-        return "No page detected";
+        return chrome.i18n.getMessage("jsNoPageDetected");
     }
 
     try {
         return new URL(tab.url).hostname;
     } catch (error) {
-        return "Unsupported page";
+        return chrome.i18n.getMessage("jsUnsupportedPage");
     }
 }
 
@@ -95,21 +110,21 @@ function render() {
 
     elements.tabHost.textContent = getHostname(activeTab);
     elements.tabHint.textContent = isSupported
-        ? "Ready for a user-started run on the current page."
-        : "Open the exact facebook.com page you want to process.";
+        ? chrome.i18n.getMessage("jsTabHintReady")
+        : chrome.i18n.getMessage("jsTabHintOpenExact");
     elements.countValue.textContent = String(viewState.reportedCount ?? 0);
 
     if (runningOnThisTab) {
-        elements.statusPill.textContent = "Running";
+        elements.statusPill.textContent = chrome.i18n.getMessage("jsStatusRunning");
         elements.statusPill.className = "status-pill is-running";
     } else if (runningElsewhere) {
-        elements.statusPill.textContent = "Other tab";
+        elements.statusPill.textContent = chrome.i18n.getMessage("jsStatusOtherTab");
         elements.statusPill.className = "status-pill is-warning";
     } else if (isSupported) {
-        elements.statusPill.textContent = "Ready";
+        elements.statusPill.textContent = chrome.i18n.getMessage("jsStatusReady");
         elements.statusPill.className = "status-pill is-idle";
     } else {
-        elements.statusPill.textContent = "Unsupported";
+        elements.statusPill.textContent = chrome.i18n.getMessage("jsStatusUnsupported");
         elements.statusPill.className = "status-pill is-warning";
     }
 
@@ -122,21 +137,21 @@ function render() {
     }
 
     if (!isSupported) {
-        setMessage("Open a page on facebook.com, then reopen the popup.", "warning");
+        setMessage(chrome.i18n.getMessage("jsMsgOpenFacebook"), "warning");
         return;
     }
 
     if (runningOnThisTab) {
-        setMessage(viewState.lastStatus || "A reporting run is active on this tab.", "success");
+        setMessage(viewState.lastStatus || chrome.i18n.getMessage("jsMsgActiveThisTab"), "success");
         return;
     }
 
     if (runningElsewhere) {
-        setMessage("A run is already marked as active in another tab.", "warning");
+        setMessage(chrome.i18n.getMessage("jsMsgActiveOtherTab"), "warning");
         return;
     }
 
-    setMessage(viewState.lastStatus || "Ready. Review the page, then click Start.", "neutral");
+    setMessage(viewState.lastStatus || chrome.i18n.getMessage("jsMsgReadyStart"), "neutral");
 }
 
 async function refreshState() {
@@ -151,7 +166,7 @@ async function refreshState() {
                 ...viewState,
                 isRunning: false,
                 runningTabId: null,
-                lastStatus: "The previous run ended after the page changed or reloaded."
+                lastStatus: chrome.i18n.getMessage("jsMsgPrevRunEnded")
             };
             await setStorage({
                 isRunning: false,
@@ -170,12 +185,12 @@ async function handleStart() {
         return;
     }
 
-    busyMessage = "Injecting the content script into the current tab...";
+    busyMessage = chrome.i18n.getMessage("jsMsgInjecting");
     render();
 
     try {
         await executeContentScript(activeTab.id);
-        busyMessage = "Starting the reporting run on the current tab...";
+        busyMessage = chrome.i18n.getMessage("jsMsgStartingRun");
         render();
 
         await sendTabMessage(activeTab.id, { action: "START_REPORT", tabId: activeTab.id });
@@ -184,7 +199,7 @@ async function handleStart() {
     } catch (error) {
         busyMessage = "";
         await setStorage({
-            lastStatus: `Start failed: ${error.message}`,
+            lastStatus: chrome.i18n.getMessage("jsMsgStartFailed") + error.message,
             isRunning: false,
             runningTabId: null
         });
@@ -198,7 +213,7 @@ async function handleStop() {
         return;
     }
 
-    busyMessage = "Stopping the current run...";
+    busyMessage = chrome.i18n.getMessage("jsMsgStoppingRun");
     render();
 
     try {
@@ -207,7 +222,7 @@ async function handleStop() {
         await setStorage({
             isRunning: false,
             runningTabId: null,
-            lastStatus: "Stopped locally after the content script became unavailable."
+            lastStatus: chrome.i18n.getMessage("jsMsgStoppedLocally")
         });
     } finally {
         busyMessage = "";

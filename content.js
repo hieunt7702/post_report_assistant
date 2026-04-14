@@ -80,7 +80,7 @@
     }
 
     async function waitForPopupToClose(textArray) {
-        logger("Waiting for the popup to close completely...", "info");
+        logger(chrome.i18n.getMessage("contentWaitPopup"), "info");
         let attempts = 0;
 
         while (attempts < 10) {
@@ -90,7 +90,7 @@
             });
 
             if (!isStillThere) {
-                logger("Popup closed. Continuing with the next item.", "success");
+                logger(chrome.i18n.getMessage("contentPopupClosed"), "success");
                 return true;
             }
 
@@ -102,17 +102,17 @@
     }
 
     async function clickDotsAndReport(button) {
-        logger("Opening the 3-dot menu...", "warn");
+        logger(chrome.i18n.getMessage("contentOpenMenu"), "warn");
         button.click();
         await delay(1500);
 
-        logger("Selecting report post...", "info");
+        logger(chrome.i18n.getMessage("contentSelectReport"), "info");
         if (!(await clickElementByText("span", ["Report post", "B\u00e1o c\u00e1o b\u00e0i vi\u1ebft", "B\u00e1o c\u00e1o"]))) {
             return false;
         }
         await delay(2500);
 
-        logger("Selecting broad reason...", "info");
+        logger(chrome.i18n.getMessage("contentSelectBroad"), "info");
         if (!(await clickElementByText("span", [
             "Scam, fraud or false information",
             "Th\u00f4ng tin sai s\u1ef1 th\u1eadt, l\u1eeba \u0111\u1ea3o ho\u1eb7c gian l\u1eadn"
@@ -121,23 +121,23 @@
         }
         await delay(2000);
 
-        logger("Selecting detailed reason...", "info");
+        logger(chrome.i18n.getMessage("contentSelectDetailed"), "info");
         if (!(await clickElementByText("span", ["Fraud or scam", "Gian l\u1eadn ho\u1eb7c l\u1eeba \u0111\u1ea3o"]))) {
             return false;
         }
         await delay(2000);
 
-        logger("Submitting...", "success");
+        logger(chrome.i18n.getMessage("contentSubmitting"), "success");
         if (!(await clickElementByText("span", ["Submit", "G\u1eedi"]))) {
             return false;
         }
         await delay(2000);
 
-        logger("Clicking Next...", "success");
+        logger(chrome.i18n.getMessage("contentClickNext"), "success");
         await clickElementByText("span", ["Next", "Ti\u1ebfp"]);
         await delay(2000);
 
-        logger("Clicking Done...", "success");
+        logger(chrome.i18n.getMessage("contentClickDone"), "success");
         await clickElementByText("span", ["Done", "Xong"]);
 
         await waitForPopupToClose(["Done", "Xong", "Next", "Ti\u1ebfp"]);
@@ -174,21 +174,21 @@
 
                 if (result === "SUCCESS") {
                     reportedCount += 1;
-                    logger(`Completed item ${reportedCount}.`, "success");
+                    logger(`${chrome.i18n.getMessage("contentCompletedItem")}${reportedCount}.`, "success");
                     chrome.runtime.sendMessage({ action: "UPDATE_COUNT", count: reportedCount });
                     await syncState({
                         reportedCount,
-                        lastStatus: `Reported ${reportedCount} item(s) on this device.`
+                        lastStatus: chrome.i18n.getMessage("contentReportedItems", String(reportedCount))
                     });
                     window.scrollBy(0, 500);
                     await delay(3000);
                     break;
                 }
 
-                logger("Flow error. Refreshing the page to auto-resume...", "error");
+                logger(chrome.i18n.getMessage("contentFlowError"), "error");
                 sessionStorage.setItem("PRA_RESUME_ON_LOAD", "true");
                 await syncState({
-                    lastStatus: `Refreshed page to recover from an error. Resuming...`
+                    lastStatus: chrome.i18n.getMessage("contentRefreshedError")
                 });
                 window.location.reload();
                 return;
@@ -198,10 +198,10 @@
                 if (!foundNewPost) {
                     emptyScanCounter++;
                     if (emptyScanCounter >= 3) {
-                        logger("No fresh posts found to report. Refreshing the page...", "warn");
+                        logger(chrome.i18n.getMessage("contentNoFreshPosts"), "warn");
                         sessionStorage.setItem("PRA_RESUME_ON_LOAD", "true");
                         await syncState({
-                            lastStatus: `No posts found. Refreshed page to load new content.`
+                            lastStatus: chrome.i18n.getMessage("contentRefreshedNew")
                         });
                         window.location.reload();
                         return;
@@ -216,7 +216,7 @@
         await syncState({
             isRunning: false,
             runningTabId: null,
-            lastStatus: "Run stopped."
+            lastStatus: chrome.i18n.getMessage("contentRunStopped")
         });
     }
 
@@ -235,9 +235,9 @@
                     await syncState({
                         isRunning: true,
                         runningTabId: message.tabId ?? null,
-                        lastStatus: "Run started from the popup."
+                        lastStatus: chrome.i18n.getMessage("contentRunStartedPopup")
                     });
-                    logger("Starting run...", "success");
+                    logger(chrome.i18n.getMessage("contentStartingRun"), "success");
                     startAutoReport();
                 }
 
@@ -250,9 +250,9 @@
                 await syncState({
                     isRunning: false,
                     runningTabId: null,
-                    lastStatus: "Run stopped from the popup."
+                    lastStatus: chrome.i18n.getMessage("contentRunStoppedPopup")
                 });
-                logger("Stopped.", "error");
+                logger(chrome.i18n.getMessage("contentStopped"), "error");
                 sendResponse({ status: "ok" });
                 return;
             }
@@ -262,7 +262,7 @@
             await syncState({
                 isRunning: false,
                 runningTabId: null,
-                lastStatus: `Run failed: ${error.message}`
+                lastStatus: chrome.i18n.getMessage("contentRunFailed") + error.message
             });
             sendResponse({ status: "error", error: error.message });
         });
@@ -277,7 +277,7 @@
             if (stored.isRunning) {
                 isRunning = true;
                 reportedCount = Number(stored.reportedCount) || 0;
-                logger("Auto-resuming run after page reload...", "success");
+                logger(chrome.i18n.getMessage("contentAutoResuming"), "success");
                 startAutoReport();
             }
         }

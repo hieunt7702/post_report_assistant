@@ -22,8 +22,10 @@
 }
 
 body {
-    width: 392px;
+    width: 640px;
+    height: 400px;
     margin: 0;
+    overflow: hidden;
     font-family: "Aptos", "Segoe UI Variable", "Segoe UI", sans-serif;
     color: var(--ink);
     background:
@@ -33,7 +35,7 @@ body {
 }
 
 .popup-shell {
-    padding: 18px;
+    padding: 14px 18px;
 }
 
 .card {
