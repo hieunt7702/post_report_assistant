@@ -19,16 +19,19 @@
 
 * {
     box-sizing: border-box;
+    scrollbar-width: none; /* Firefox */
 }
 
-html, body {
+::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+html,
+body {
     width: 640px;
-    height: 400px;
-    min-width: 640px;
-    min-height: 400px;
+    height: fit-content;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     font-family: "Aptos", "Segoe UI Variable", "Segoe UI", sans-serif;
     color: var(--ink);
     background:
