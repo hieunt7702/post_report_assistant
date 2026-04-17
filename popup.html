@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Report Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main class="popup-shell">
         <section class="card hero-card">
@@ -30,7 +32,8 @@
             <article class="metric-card">
                 <span class="metric-label" data-i18n="popupMetricPage">Current page</span>
                 <strong id="tab-host" class="metric-value" data-i18n="popupTabHostDefault">Checking...</strong>
-                <span id="tab-hint" class="metric-note" data-i18n="popupTabHint">The extension only runs on facebook.com.</span>
+                <span id="tab-hint" class="metric-note" data-i18n="popupTabHint">The extension only runs on
+                    facebook.com.</span>
             </article>
 
             <article class="metric-card">
@@ -42,7 +45,8 @@
 
         <section class="card controls-card">
             <div class="button-row">
-                <button id="start-btn" class="btn btn-primary" type="button" data-i18n="popupBtnStart">Start on this tab</button>
+                <button id="start-btn" class="btn btn-primary" type="button" data-i18n="popupBtnStart">Start on this
+                    tab</button>
                 <button id="stop-btn" class="btn btn-secondary" type="button" data-i18n="popupBtnStop">Stop</button>
             </div>
 
@@ -55,16 +59,19 @@
             <h2 data-i18n="popupGuidanceTitle">How this build is scoped</h2>
             <ul class="guidance-list">
                 <li data-i18n="popupGuidanceItem1">User-started only. Nothing runs until you click Start.</li>
-                <li data-i18n="popupGuidanceItem2">Current tab only. No persistent access is requested for all sites.</li>
-                <li data-i18n="popupGuidanceItem3">Local storage only. This build does not send data to a remote server.</li>
+                <li data-i18n="popupGuidanceItem2">Current tab only. No persistent access is requested for all sites.
+                </li>
+                <li data-i18n="popupGuidanceItem3">Local storage only. This build does not send data to a remote server.
+                </li>
             </ul>
         </section>
 
         <footer class="footer">
-            <span data-i18n="popupFooter">v2.2.0 - created by hieunt</span>
+            <span data-i18n="popupFooter">v3.0.0 - created by hieunt</span>
         </footer>
     </main>
 
     <script src="popup.js"></script>
 </body>
+
 </html>

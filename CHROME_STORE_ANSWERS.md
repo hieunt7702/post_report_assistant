@@ -1,71 +1,74 @@
-# Hướng dẫn Đẩy Tiện ích lên Chrome Web Store (Cập nhật cho v2.3.0)
+# Guide to Publishing to Chrome Web Store (Updated for v2.3.0)
 
-Tài liệu này tổng hợp các câu trả lời tối ưu nhất cho "Post Report Assistant" để đảm bảo tỉ lệ duyệt nhanh nhất và tránh bị từ chối do vi phạm chính sách hiển thị hoặc quyền riêng tư.
-
----
-
-## 1. Thông tin sản phẩm (Product Details)
-
-- **Tên tiện ích (Name):** Post Report Assistant
-- **Mô tả ngắn (Summary):** Hỗ trợ báo cáo bài viết trên Facebook một cách nhanh chóng. Chạy tĩnh trên tab hiện tại và hỗ trợ đa ngôn ngữ.
-- **Mô tả chi tiết (Description):**
-  Post Report Assistant là một công cụ hỗ trợ người dùng Facebook thực hiện quy trình báo cáo (report) các bài viết chứa nội dung rác, thông tin sai lệch một cách nhanh chóng.
-  
-  (Vui lòng cung cấp cả phần dịch tiếng Anh cho đối tượng quốc tế nếu cần thiết vì tiện ích đã có tiếng Anh).
-
-  **Các tính năng nổi bật:**
-  - Hỗ trợ đa ngôn ngữ (Tiếng Việt & Tiếng Anh tự động nhận diện theo Chrome).
-  - Giao diện nhỏ gọn, sắc nét chuẩn 640x400 không có thanh cuộn ngang/dọc, trải nghiệm mượt mà.
-  - Chạy trực tiếp trên tab Facebook hiện tại khi người dùng nhấn nút "Start".
-  - Tự động hóa các bước chọn lý do báo cáo (mặc định là "Scam, fraud or false information").
-  - Hoàn toàn minh bạch: Không thu thập dữ liệu người dùng, không bao giờ gửi dữ liệu ra máy chủ bên ngoài. Tất cả trạng thái lưu trữ cục bộ (local storage) trên Chrome của bạn.
-
-  **Cách sử dụng:**
-  1. Mở trang Facebook chứa bài viết bạn muốn xử lý.
-  2. Mở tiện ích và nhấn "Start on this tab" (Bắt đầu trên tab này).
-  3. Tiện ích tự tiến hành click các tùy chọn cần thiết trong khi bạn có khả năng nhấn "Stop" ngay lập tức để dừng luồng hoạt động.
-
-- **Danh mục (Category):** Productivity (Hoặc Social & Communication)
+This document contains the fully optimized answers and declarations for the "Post Report Assistant" extension. **Copy and paste these exact English details** into the Chrome Web Store Developer Dashboard to ensure a 100% fast approval rate and avoid any rejections based on styling or privacy policy violations.
 
 ---
 
-## 2. Hình ảnh và Thương hiệu (Assets)
+## 1. Store Listing Details (Product Details)
 
-- **Icon:** Dùng tệp `icon16.png`, `icon32.png`, `icon48.png`, `icon128.png`.
-- **Screenshots (Cực kỳ quan trọng):** 
-  Do phiên bản v2.3.0 đã tối ưu hóa không còn thanh cuộn và căn đúng kích thước `640x400` cho tiện ích, vui lòng chụp chuẩn không gian của popup từ trên xuống dưới.
-  1. Ảnh popup phiên bản cũ đã được gỡ đi, thay bằng ảnh chụp popup phiên bản mới (sạch và hiển thị đẩy đủ).
-  2. Một ảnh hiển thị trạng thái "Running" (Đang chạy).
-- **Video Demo (Bắt buộc):** Một số Extension tự động bấm chuột dễ bị bot review đánh giá là rủi ro. Hãy đính kèm link YouTube một Video Demo không công khai hiển thị chi tiết tính năng của bạn để qua ải "Manual Review".
+Fill in the information exactly as specified below:
+
+- **Name:** Post Report Assistant
+- **Summary:** Quickly assists in reporting Facebook posts. Runs locally on the active tab and supports multiple languages.
+- **Detailed Description (Description):**
+  Post Report Assistant is a productivity tool designed to help Facebook users easily automate the reporting workflow for posts containing spam, fraud, or false information.
+
+  **Key Features:**
+  - Full multi-language support (English & Vietnamese are detected automatically based on the user's browser language).
+  - Clean and crisp interface perfectly sized at 640x400. It eliminates any horizontal/vertical scrollbars for a modern and completely smooth user experience.
+  - Runs directly on your current active Facebook tab when the "Start" button is clicked.
+  - Automates the clicking process for reporting reasons (defaulting to "Scam, fraud, or false information").
+  - 100% Transparent Privacy: Zero user data collection, background tracking, or remote server connections. Everything is stored locally.
+
+  **How to Use:**
+  1. Open a Facebook page containing the post you wish to report.
+  2. Open the extension from your Chrome toolbar and click "Start on this tab".
+  3. The extension will automatically interact with the page elements. You can click "Stop" at any time to immediately halt the workflow.
+
+- **Category:** Productivity (or Social & Communication)
 
 ---
 
-## 3. Quyền riêng tư và Bảo mật (Privacy & Security) - Mẫu điền Declaration
+## 2. Store Assets (Images & Branding)
 
-Để được duyệt phiên bản 2.3.0, hãy điền như sau:
+- **Icons:** Upload your 16x16, 32x32, 48x48, and 128x128 icons.
+- **Screenshots (Extremely Important):** 
+  Because version 2.3.0 is precisely optimized to fit 640x400 without overflowing, ensure you capture the entire clean interface.
+  1. **Main UI:** A high-quality capture of the new, fully visible and clean popup (remove any old screenshots).
+  2. **Active State:** Add at least one screenshot showing the extension in the "Running" state.
+- **Demo Video (Mandatory):** Extensions that simulate user clicks are strictly monitored and often flagged by review bots. **You must include a link to an unlisted YouTube video** demonstrating how the extension securely operates on Facebook. This step is practically required for automation tools to pass the Google "Manual Review" quickly.
 
-### Mục đích duy nhất (Single Purpose Description)
-"This extension assists users in automating the repetitive clicks required to report inappropriate posts strictly on their active Facebook tab. It executes solely upon user request to streamline their personal content moderation."
+---
 
-### Diễn giải quyền (Permissions Justification)
+## 3. Privacy & Security Declarations
+
+To ensure your extension passes through the review team smoothly, provide these precise justifications in the "Privacy" tab:
+
+### Single Purpose Description
+"This extension assists users in automating the repetitive clicks required to report inappropriate posts strictly on their currently active Facebook tab. It executes solely upon user request to streamline personal content moderation tasks."
+
+### Permissions Justification
 - **Host Permissions (`*://*.facebook.com/*`) & content_scripts:** 
-  "Necessary to inject a content script to manipulate DOM elements for the reporting workflow on Facebook. It strictly operates within Facebook URLs and handles UI states effectively when errors occur."
+  "Necessary to inject a content script that manipulates specific DOM elements for the post reporting workflow on Facebook. It operates strictly within Facebook URLs and handles UI states robustly."
 - **activeTab & scripting:** 
-  "Used to access the currently focused tab's URL to verify it is Facebook before injecting the script via user interaction in the extension popup."
+  "Used to access the currently focused tab's URL to verify it is Facebook before injecting the required automation script, exclusively triggered via user interaction in the popup."
 - **storage:** 
-  "Used strictly for local session management (persisting start/stop state and item count locally on user's machine). No data leaves the browser."
+  "Used strictly for local session management (persisting the start/stop state and counted items locally in the user's browser). No data ever leaves the local machine."
 
-### Data Usage (Cực kỳ quan trọng)
-- **Do you collect data?** Chọn **NO**.
-- **Do you use remote code?** Chọn **NO**. 
+### Data Usage Details (Crucial Step)  
+You must accurately declare your data usage:
+- **Do you collect or use user data?** Select **NO**.
+- **Do you use remote code?** Select **NO**. 
 
-### Tuyên bố về quyền riêng tư (Privacy Policy URL)
-- Nơi đến của URL có thể trỏ thẳng vào nội dung `PRIVACY_POLICY.md` mà tôi đã cập nhật nội dung cho bạn.
+### Privacy Policy URL
+- You must provide a valid link to a Privacy Policy page (e.g., hosted on GitHub Pages, Google Sites, or your personal blog). Point it directly to your `PRIVACY_POLICY.md` content which outlines that NO data is remotely collected.
 
 ---
 
-## 4. Cam kết lập trình viên
+## 4. Developer Commitments
 
-- Check đầy đủ các mục: KHÔNG bán dữ liệu, KHÔNG thao tác vào các thứ không liên quan, KHÔNG dùng vào tín dụng/vay nợ.
+At the final step of the store listing:
+- Ensure you agree to all program policies.
+- Check the compliance boxes declaring your extension DOES NOT sell data, DOES NOT manipulate unrelated content, and DOES NOT involve credit or lending applications.
 
-Chúc bạn đẩy tiện ích mới thành công và đạt vòng duyệt xét một cách nhanh chóng nhất!
+Following this exact guide will make your Chrome Store submission clear, professional, and compliant, significantly boosting your chances of passing the review within 24 hours.

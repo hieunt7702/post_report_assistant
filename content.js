@@ -168,7 +168,8 @@
 
                 button.dataset.reported = "true";
                 button.scrollIntoView({ block: "center", behavior: "smooth" });
-                await delay(1000);
+                // Bỏ delay trước khi click để chạy nhanh hơn
+                // await delay(1000);
 
                 const result = await clickDotsAndReport(button);
 
@@ -181,7 +182,8 @@
                         lastStatus: chrome.i18n.getMessage("contentReportedItems", String(reportedCount))
                     });
                     window.scrollBy(0, 500);
-                    await delay(3000);
+                    // Bỏ delay sau khi report thành công
+                    // await delay(3000);
                     break;
                 }
 
@@ -209,7 +211,8 @@
                 }
 
                 window.scrollBy(0, 800);
-                await delay(4000);
+                // Bỏ delay chờ cuộn trang, nếu trang không load kịp Facebook sẽ tự reload ở logic trên
+                // await delay(4000);
             }
         }
 
